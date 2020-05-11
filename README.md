@@ -16,6 +16,6 @@
  - Custom Views
  
  <p float="left">
-  <img src="https://github.com/deepanshu2895/Task/blob/master/Screenshot%202020-05-11%20at%201.19.22%20AM.png" width="400" />
-  <img src="https://github.com/deepanshu2895/Task/blob/master/Screenshot%202020-05-11%20at%201.19.31%20AM.png" width="400" /> 
+  <img src="https://github.com/deepanshu2895/Horizontal-Corousal/blob/master/Screenshot%202020-05-11%20at%201.19.22%20AM.png" width="400" />
+  <img src="https://github.com/deepanshu2895/Horizontal-Corousal/blob/master/Screenshot%202020-05-11%20at%201.19.31%20AM.png" width="400" /> 
 </p>
