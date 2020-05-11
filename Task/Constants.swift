@@ -17,7 +17,6 @@ class K {
 	}
 	
 	struct Strings {
-		static let doubleZeroes: String = ".00"
 		static let emptyString: String = ""
 		static let jsonFilename: String = "demo"
 		static let jsonExtension: String = "json"
@@ -39,5 +38,9 @@ class K {
 		static let cellWidth: CGFloat = floor(screenSize.width * K.Dimensions.cellWidthScale)
 		static let cellHeight: CGFloat = floor(screenSize.height * K.Dimensions.cellHeightScale)
 		static let itemSize: CGSize = CGSize(width: K.Dimensions.cellWidth, height: K.Dimensions.cellHeight)
+	}
+	struct TestingConstants {
+		static let interactorNotInstantiated: String = "Could not instantiate API call"
+		static let apiCallFailed: String = "API call has failed"
 	}
 }

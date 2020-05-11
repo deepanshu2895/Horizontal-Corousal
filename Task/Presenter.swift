@@ -22,7 +22,7 @@ class Presenter {
 	var currentCurrency: String = K.Strings.emptyString
 	
 	private func setViewModels(data: ItemData) {
-		self.setViewModels(productsViewModel: data.products, currencyViewModel: data.conversion)
+		setViewModels(productsViewModel: data.products, currencyViewModel: data.conversion)
 		view?.passingItemData(data: data)
 	}
 }
@@ -78,14 +78,13 @@ extension Presenter: ViewOutputProtocol {
 	}
 	
 	func getConvertPrice(from currentCurrency: String, to updatedCurrency: String, at index: Int) -> String {
-		let currentPrice = Float(productsViewModel[index].price)
-		let dict = currencyViewModel
-		for entry in dict {
+		for entry in currencyViewModel {
 			if entry.from == currentCurrency && entry.to == updatedCurrency {
-				let rate = Float(entry.rate)
-				let result = currentPrice! * rate!
-				let resultInt = Int(result)
-				let resultString = String(resultInt) + K.Strings.doubleZeroes
+				let rate: Double = Double(entry.rate)!
+				let price: Double = Double(productsViewModel[index].price)!
+				var result = price * rate
+				result = result.rounded(toPlaces: 2)
+				let resultString = String(result)
 				return resultString
 			}
 		}

@@ -10,10 +10,8 @@ import XCTest
 @testable import Task
 
 class TaskTests: XCTestCase {
-	//target
 	var presenter: Presenter!
 	
-	//Mocks
 	var view: ViewInputProtocol?
 	var interactor: InteractorInputProtocol?
 	
@@ -45,5 +43,18 @@ class TaskTests: XCTestCase {
 }
 
 extension TaskTests {
+	
+	func testInfoLoading() {
+		guard let interactor = interactor else {
+			XCTAssert(false, K.TestingConstants.interactorNotInstantiated)
+			return
+		}
+		interactor.makeAPICall()
+		
+		let pred = NSPredicate(format: "\(presenter.productsViewModel.count) == 0")
+		let exp = expectation(for: pred, evaluatedWith: presenter.productsViewModel.count, handler: nil)
+		let result = XCTWaiter.wait(for: [exp], timeout: 5.0)
+		XCTAssert(result == XCTWaiter.Result.completed, K.TestingConstants.apiCallFailed)
+	}
 	
 }
